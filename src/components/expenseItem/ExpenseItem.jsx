@@ -1,5 +1,6 @@
 import React from "react";
 import ExpenseDate from "../expenseDate/ExpenseDate";
+import Card from "../card/Card";
 import './ExpenseItem.css';
 
 const ExpenseItem = ({ key, title, amount, date }) => {
@@ -7,12 +8,12 @@ const ExpenseItem = ({ key, title, amount, date }) => {
   
 
   return (
-    <div id={key} className="expense-item">
+    <Card id={key} className="expense-item">
       <ExpenseDate date={date} />
       <div className="expense-item__description"></div>
       <h2>{title}</h2>
       <div className="expense-item__price">${amount}</div>
-    </div>
+    </Card>
   );
 };
 
