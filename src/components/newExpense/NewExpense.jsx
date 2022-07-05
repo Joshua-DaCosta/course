@@ -13,6 +13,7 @@ const [isActive, setIsActive] = useState(false);
       id: Math.random(),
     };
     onAddExpense(expense);
+    setIsActive(false);
   };
 
 

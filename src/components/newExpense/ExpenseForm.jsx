@@ -24,13 +24,15 @@ const ExpenseForm = ({ saveExpenseData, setIsActive }) => {
     e.preventDefault();
     const formData = {
       title,
-      amount,
+      amount: +amount,
       date: new Date(date.replace(/-/g, "/")),
     };
+    console.log(typeof formData.amount);
     saveExpenseData(formData);
     setTitle("");
     setAmount("");
     setDate("");
+    setIsActive(false);
   };
 
   return (
@@ -65,9 +67,7 @@ const ExpenseForm = ({ saveExpenseData, setIsActive }) => {
         <button type="button" onClick={() => setIsActive(false)}>
           Cancel
         </button>
-        <button type="submit" onClick={() => setIsActive(false)}>
-          Add Expense
-        </button>
+        <button type="submit">Add Expense</button>
       </div>
     </form>
   );

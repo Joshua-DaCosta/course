@@ -3,6 +3,7 @@ import "./Expenses.css";
 import Card from "../card/Card";
 import ExpenseFilter from "../expensesFilter/ExpenseFilter";
 import ExpensesList from "../expensesList/ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 const Expenses = ({ expensesData }) => {
   const [year, setYear] = useState("");
@@ -18,8 +19,17 @@ const Expenses = ({ expensesData }) => {
   return (
     <div>
       <Card className="expenses">
-        <ExpenseFilter year={year} filterChangeHandler={filterChangeHandler} />
-        <ExpensesList year={year} filteredByYear={filteredByYear} expensesData={expensesData}/>
+        <ExpenseFilter
+          year={year}
+          filterChangeHandler={filterChangeHandler}
+          setYear={setYear}
+        />
+        <ExpensesChart expenses={filteredByYear} />
+        <ExpensesList
+          year={year}
+          filteredByYear={filteredByYear}
+          expensesData={expensesData}
+        />
       </Card>
     </div>
   );
